@@ -78,6 +78,42 @@ data/
 
 Puedes cambiar la ruta del dataset directamente desde la barra lateral de la app.
 
+## 🚁 UAV Acoustic ANC Lab (MVP v2)
+
+An interactive experimental platform for UAV acoustic modeling and adaptive noise cancellation.
+
+### 🔬 Features
+- Synthetic UAV noise modeling based on Blade Passing Frequency (BPF)
+- Adaptive Noise Cancellation (LMS vs FxLMS)
+- Real-time spectral analysis (FFT, PSD)
+- Real audio processing (WAV input)
+- Integration with real-world UAV datasets (UaVirBASE)
+
+### 🧠 Key Contribution
+This project bridges:
+- Physics-based signal modeling
+- Adaptive control algorithms
+- Real-world acoustic validation
+
+### 📸 Interface Preview
+
+#### Simulation Mode
+![Simulation](assets/simulation_view.png)
+
+#### Spectral Analysis
+![FFT](assets/fft_psd_view.png)
+
+#### LMS vs FxLMS
+![Comparison](assets/lms_vs_fxlms.png)
+
+#### Real Audio
+![Real](assets/real_audio_view.png)
+
+#### UaVirBASE Dataset
+![Dataset](assets/uavirbase_view.png)
+
+> Note: preview files are placeholders. Replace them with real Streamlit screenshots.
+
 ## Resultados esperados (fase inicial)
 
 - Pico dominante cercano a `f_BPF`.
