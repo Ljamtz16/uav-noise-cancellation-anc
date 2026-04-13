@@ -1,0 +1,4 @@
+Learning Rate (mu),Noise Reduction (dB),MSE Initial,MSE Final,Stability
+0.001,16.6,0.0713,0.0028,Stable
+0.01,24.53,0.0307,0.0001,Optimal
+0.05,,,,Unstable
