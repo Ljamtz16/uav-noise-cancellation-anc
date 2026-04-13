@@ -47,6 +47,37 @@ pip install -r requirements.txt
 2. `notebooks/02_fft_analysis.ipynb`
 3. `notebooks/03_lms_demo.ipynb`
 
+## Interfaz interactiva (Streamlit)
+
+Lanza la app experimental (simulación + audio real):
+
+```bash
+streamlit run app.py
+```
+
+La interfaz incluye 5 paneles:
+- Entrada (RPM, aspas, μ, taps, secondary path)
+- Señal temporal
+- FFT/PSD
+- Comparación LMS vs FxLMS
+- Métricas (MSE, reducción dB, frecuencia dominante)
+
+Modos disponibles:
+- **Simulado**: genera señal UAV controlada por parámetros.
+- **Audio real**: carga WAV o graba desde navegador (`st.audio_input`).
+- **UaVirBASE**: carga muestras WAV desde `data/raw/uavirbase/` para validación espectral real.
+
+Estructura esperada para dataset real:
+
+```text
+data/
+	raw/
+		uavirbase/
+			*.wav
+```
+
+Puedes cambiar la ruta del dataset directamente desde la barra lateral de la app.
+
 ## Resultados esperados (fase inicial)
 
 - Pico dominante cercano a `f_BPF`.
