@@ -112,7 +112,31 @@ This project bridges:
 #### UaVirBASE Dataset
 ![Dataset](assets/uavirbase_view.png)
 
-> Note: preview files are placeholders. Replace them with real Streamlit screenshots.
+## 📊 Example Results
+
+| Metric | Value |
+| --- | --- |
+| BPF (theoretical) | 200 Hz |
+| LMS reduction | ~24.53 dB |
+| FxLMS reduction | ~22.83 dB |
+| Stability μ | 0.01 |
+
+## 📊 Experimental Results
+
+### 🔧 Configuration
+![Config](results/figures/01_config.png)
+
+### ⏱️ Time Domain Response
+![Time](results/figures/02_time_domain.png)
+
+### 📈 Frequency Domain (FFT / PSD)
+![FFT](results/figures/03_fft_psd.png)
+
+### 📉 Convergence and Performance
+![MSE](results/figures/04_convergence.png)
+
+### 🎯 Final Metrics
+![Metrics](results/figures/05_metrics.png)
 
 ## Resultados esperados (fase inicial)
 

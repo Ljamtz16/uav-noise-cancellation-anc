@@ -63,6 +63,10 @@ UAV noise is dominated by blade passing frequency and harmonics, with broadband 
 - **Convergence behavior:** MSE initial ≈ 0.0307 → final ≈ 0.0001 (μ = 0.01), indicating rapid adaptation.
 - **Stability margin:** The divergence at μ = 0.05 validates theoretical bounds on adaptation gain.
 
+**Figure 1.** Experimental configuration interface used to control RPM, number of blades, adaptive gain μ, filter length, and secondary path activation. See [results/figures/01_config.png](results/figures/01_config.png).
+
+**Figure 2.** Time-domain response before and after adaptive cancellation, showing the original UAV acoustic signal and the attenuated error signal. See [results/figures/02_time_domain.png](results/figures/02_time_domain.png).
+
 ## 7. Comparative Results: LMS vs FxLMS
 
 ### Experimental Configuration (FxLMS)
@@ -87,6 +91,10 @@ The 1.70 dB reduction difference reflects a fundamental trade-off:
 
 In real acoustic environments with complex secondary paths, FxLMS is expected to maintain stability while LMS may diverge or become unstable.
 
+**Figure 3.** Frequency-domain analysis (FFT and PSD) confirming suppression of the dominant Blade Passing Frequency and its harmonics. See [results/figures/03_fft_psd.png](results/figures/03_fft_psd.png).
+
+**Figure 4.** MSE convergence and direct LMS versus FxLMS performance comparison under the selected secondary path configuration. See [results/figures/04_convergence.png](results/figures/04_convergence.png).
+
 ## 8. Discussion
 
 The experimental results demonstrate that the LMS adaptive filter is capable of significantly attenuating the dominant acoustic components associated with UAV propeller noise. A maximum noise reduction of approximately 24.53 dB was achieved under stable conditions at μ = 0.01.
@@ -96,6 +104,8 @@ The extended analysis with FxLMS reveals the importance of secondary path modeli
 The parameter sweep of the adaptation rate (μ) revealed the expected trade-off between convergence speed and stability, consistent with classical adaptive filter theory. Lower values of μ resulted in slower but stable convergence (16.6 dB at μ = 0.001), while higher values led to divergence and numerical instability. The optimal performance was observed at μ = 0.01, which provided the best balance between convergence speed and noise reduction.
 
 In the frequency domain, the attenuation of the Blade Passing Frequency (BPF) and its harmonics confirms the effectiveness of both adaptive filtering approaches. The suppression of spectral components at 200 Hz and 400 Hz validates the algorithm's capacity to model and cancel the principal noise contributors in UAV acoustic signatures.
+
+**Figure 5.** Final performance metrics panel summarizing LMS reduction, FxLMS reduction, dominant frequency estimate, and stability status. See [results/figures/05_metrics.png](results/figures/05_metrics.png).
 
 These results establish a robust foundation for extending the system toward real-world deployment scenarios with complex acoustic environments. The paired comparison (LMS vs FxLMS) provides a quantitative benchmark for evaluating algorithm performance under ideal versus realistic acoustic conditions.
 
