@@ -13,11 +13,9 @@
 \usepackage{array}
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{cite}
-\usepackage{siunitx}          % \SI{}{} for quantities with units
-\usepackage{algorithm}
-\usepackage{algpseudocode}
-\usepackage{balance}          % balances last-page columns
+% cite is built into IEEEtran; siunitx/algorithm replaced with macros below
+\newcommand{\SI}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\si}[1]{\ensuremath{\mathrm{#1}}}
 
 % ── Paths ─────────────────────────────────────────────────────
 \graphicspath{{../results/figures/}{../assets/}{../Evidencias/}}
@@ -187,21 +185,24 @@ Algorithm~\ref{alg:lms} summarises the sample-by-sample LMS update; FxLMS
 follows the same structure with the filtered reference $\bm{x}'(n)$
 substituted for $\bm{x}(n)$.
 
-\begin{algorithm}[t]
-  \caption{LMS Adaptive Filter (sample-by-sample)}
+\begin{table}[t]
+  \centering
+  \caption{Algorithm 1: LMS Adaptive Filter (sample-by-sample)}
   \label{alg:lms}
-  \begin{algorithmic}[1]
-    \Require reference buffer $\bm{x}$, desired signal $d$,
-             step size $\mu$, filter order $L$
-    \State $\bm{w} \leftarrow \bm{0}_L$
-    \For{$n = 1, 2, \ldots, N$}
-      \State $y(n) \leftarrow \bm{w}^{\!\top}\bm{x}(n)$
-      \State $e(n) \leftarrow d(n) - y(n)$
-      \State $\bm{w} \leftarrow \bm{w} + \mu\,e(n)\,\bm{x}(n)$
-    \EndFor
-    \Ensure error signal $\bm{e}$, output signal $\bm{y}$
-  \end{algorithmic}
-\end{algorithm}
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    \textbf{Step} & \textbf{Operation} \\
+    \midrule
+    Input  & Reference buffer $\bm{x}$, desired $d$, step $\mu$, order $L$ \\
+    Init   & $\bm{w} \leftarrow \bm{0}_L$ \\
+    For $n=1\ldots N$: & \\
+    \quad Output    & $y(n) = \bm{w}^\top\bm{x}(n)$ \\
+    \quad Error     & $e(n) = d(n) - y(n)$ \\
+    \quad Update    & $\bm{w} \leftarrow \bm{w} + \mu\,e(n)\,\bm{x}(n)$ \\
+    Output & Error signal $\bm{e}$, filtered output $\bm{y}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 Filter order $L = 64$ taps was selected after a sweep showing diminishing
 returns beyond 64 taps with no stability gain.
@@ -430,7 +431,6 @@ hardware-in-the-loop validation, (ii) spatial ANC simulation with
 \end{table}
 
 % ─────────────────────────────────────────────────────────────
-\balance
 \bibliographystyle{IEEEtran}
 \begin{thebibliography}{10}
 
